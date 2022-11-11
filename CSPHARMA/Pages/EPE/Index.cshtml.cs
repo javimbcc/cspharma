@@ -18,13 +18,13 @@ namespace CSPHARMA.Pages.EPE
             _context = context;
         }
 
-        public IList<TdcCatEstadosPagoEnvio> TdcCatEstadosPagoEnvio { get;set; } = default!;
+        public IList<TdcCatEstadosPagoPedido> TdcCatEstadosPagoPedido { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.TdcCatEstadosPagoEnvios != null)
+            if (_context.TdcCatEstadosPagoPedidos != null)
             {
-                TdcCatEstadosPagoEnvio = await _context.TdcCatEstadosPagoEnvios.ToListAsync();
+                TdcCatEstadosPagoPedido = await _context.TdcCatEstadosPagoPedidos.ToListAsync();
             }
         }
     }

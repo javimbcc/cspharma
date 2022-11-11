@@ -24,7 +24,7 @@ namespace CSPHARMA.Pages.EPE
         }
 
         [BindProperty]
-        public TdcCatEstadosPagoEnvio TdcCatEstadosPagoEnvio { get; set; }
+        public TdcCatEstadosPagoPedido TdcCatEstadosPagoPedido { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -35,7 +35,7 @@ namespace CSPHARMA.Pages.EPE
                 return Page();
             }
 
-            _context.TdcCatEstadosPagoEnvios.Add(TdcCatEstadosPagoEnvio);
+            _context.TdcCatEstadosPagoPedidos.Add(TdcCatEstadosPagoPedido);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

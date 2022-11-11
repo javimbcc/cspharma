@@ -14,23 +14,26 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoEnvio[0].MdDate)
+                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoPedido[0].MdUuid)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoEnvio[0].Id)
+                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoPedido[0].MdDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoEnvio[0].CodEstadoPago)
+                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoPedido[0].Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoEnvio[0].DesEstadoPago)
+                @Html.DisplayNameFor(model => model.TdcCatEstadosPagoPedido[0].DesEstadoPago)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.TdcCatEstadosPagoEnvio) {
+@foreach (var item in Model.TdcCatEstadosPagoPedido) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MdUuid)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MdDate)
             </td>
@@ -38,15 +41,12 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodEstadoPago)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DesEstadoPago)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.MdUuid">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.MdUuid">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.MdUuid">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.CodEstadoPago">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CodEstadoPago">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CodEstadoPago">Delete</a>
             </td>
         </tr>
 }

@@ -27,7 +27,7 @@ namespace CSPHARMA.Pages.LD
                 return NotFound();
             }
 
-            var tdccatlineasdistribucion = await _context.TdcCatLineasDistribucions.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdccatlineasdistribucion = await _context.TdcCatLineasDistribucions.FirstOrDefaultAsync(m => m.CodLinea == id);
             if (tdccatlineasdistribucion == null)
             {
                 return NotFound();

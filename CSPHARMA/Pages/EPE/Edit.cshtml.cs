@@ -20,21 +20,21 @@ namespace CSPHARMA.Pages.EPE
         }
 
         [BindProperty]
-        public TdcCatEstadosPagoEnvio TdcCatEstadosPagoEnvio { get; set; } = default!;
+        public TdcCatEstadosPagoPedido TdcCatEstadosPagoPedido { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _context.TdcCatEstadosPagoEnvios == null)
+            if (id == null || _context.TdcCatEstadosPagoPedidos == null)
             {
                 return NotFound();
             }
 
-            var tdccatestadospagoenvio =  await _context.TdcCatEstadosPagoEnvios.FirstOrDefaultAsync(m => m.MdUuid == id);
-            if (tdccatestadospagoenvio == null)
+            var tdccatestadospagopedido =  await _context.TdcCatEstadosPagoPedidos.FirstOrDefaultAsync(m => m.CodEstadoPago == id);
+            if (tdccatestadospagopedido == null)
             {
                 return NotFound();
             }
-            TdcCatEstadosPagoEnvio = tdccatestadospagoenvio;
+            TdcCatEstadosPagoPedido = tdccatestadospagopedido;
             return Page();
         }
 
@@ -47,7 +47,7 @@ namespace CSPHARMA.Pages.EPE
                 return Page();
             }
 
-            _context.Attach(TdcCatEstadosPagoEnvio).State = EntityState.Modified;
+            _context.Attach(TdcCatEstadosPagoPedido).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +55,7 @@ namespace CSPHARMA.Pages.EPE
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TdcCatEstadosPagoEnvioExists(TdcCatEstadosPagoEnvio.MdUuid))
+                if (!TdcCatEstadosPagoPedidoExists(TdcCatEstadosPagoPedido.CodEstadoPago))
                 {
                     return NotFound();
                 }
@@ -68,9 +68,9 @@ namespace CSPHARMA.Pages.EPE
             return RedirectToPage("./Index");
         }
 
-        private bool TdcCatEstadosPagoEnvioExists(string id)
+        private bool TdcCatEstadosPagoPedidoExists(string id)
         {
-          return _context.TdcCatEstadosPagoEnvios.Any(e => e.MdUuid == id);
+          return _context.TdcCatEstadosPagoPedidos.Any(e => e.CodEstadoPago == id);
         }
     }
 }

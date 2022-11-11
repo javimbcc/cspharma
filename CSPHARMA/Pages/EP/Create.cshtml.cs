@@ -20,10 +20,10 @@ namespace CSPHARMA.Pages.EP
 
         public IActionResult OnGet()
         {
-        ViewData["MdUuid"] = new SelectList(_context.TdcCatEstadosDevolucionPedidos, "MdUuid", "MdUuid");
-        ViewData["MdUuid"] = new SelectList(_context.TdcCatEstadosPagoEnvios, "MdUuid", "MdUuid");
-        ViewData["MdUuid"] = new SelectList(_context.TdcCatLineasDistribucions, "MdUuid", "MdUuid");
-        ViewData["MdUuid"] = new SelectList(_context.TdcCatEstadosEnvioPedidos, "MdUuid", "MdUuid");
+        ViewData["CodEstadoDevolucion"] = new SelectList(_context.TdcCatEstadosDevolucionPedidos, "CodEstadoDevolucion", "CodEstadoDevolucion");
+        ViewData["CodEstadoEnvio"] = new SelectList(_context.TdcCatEstadosEnvioPedidos, "CodEstadoEnvio", "CodEstadoEnvio");
+        ViewData["CodEstadoPago"] = new SelectList(_context.TdcCatEstadosPagoPedidos, "CodEstadoPago", "CodEstadoPago");
+        ViewData["CodLinea"] = new SelectList(_context.TdcCatLineasDistribucions, "CodLinea", "CodLinea");
             return Page();
         }
 

@@ -29,7 +29,7 @@ namespace CSPHARMA.Pages.EEP
                 return NotFound();
             }
 
-            var tdccatestadosenviopedido =  await _context.TdcCatEstadosEnvioPedidos.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdccatestadosenviopedido =  await _context.TdcCatEstadosEnvioPedidos.FirstOrDefaultAsync(m => m.CodEstadoEnvio == id);
             if (tdccatestadosenviopedido == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace CSPHARMA.Pages.EEP
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TdcCatEstadosEnvioPedidoExists(TdcCatEstadosEnvioPedido.MdUuid))
+                if (!TdcCatEstadosEnvioPedidoExists(TdcCatEstadosEnvioPedido.CodEstadoEnvio))
                 {
                     return NotFound();
                 }
@@ -70,7 +70,7 @@ namespace CSPHARMA.Pages.EEP
 
         private bool TdcCatEstadosEnvioPedidoExists(string id)
         {
-          return _context.TdcCatEstadosEnvioPedidos.Any(e => e.MdUuid == id);
+          return _context.TdcCatEstadosEnvioPedidos.Any(e => e.CodEstadoEnvio == id);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CSPHARMA_DAL.Modelos;
 
-public partial class TdcCatEstadosPagoEnvio
+public partial class TdcCatEstadosPagoPedido
 {
     public string MdUuid { get; set; } = null!;
 
@@ -15,5 +15,5 @@ public partial class TdcCatEstadosPagoEnvio
 
     public string? DesEstadoPago { get; set; }
 
-    public virtual TdcTchEstadoPedido? TdcTchEstadoPedido { get; set; }
+    public virtual ICollection<TdcTchEstadoPedido> TdcTchEstadoPedidos { get; } = new List<TdcTchEstadoPedido>();
 }

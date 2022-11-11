@@ -21,14 +21,14 @@ namespace CSPHARMA.Pages.EP
         [BindProperty]
       public TdcTchEstadoPedido TdcTchEstadoPedido { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(long? id)
         {
             if (id == null || _context.TdcTchEstadoPedidos == null)
             {
                 return NotFound();
             }
 
-            var tdctchestadopedido = await _context.TdcTchEstadoPedidos.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdctchestadopedido = await _context.TdcTchEstadoPedidos.FirstOrDefaultAsync(m => m.Id == id);
 
             if (tdctchestadopedido == null)
             {
@@ -41,7 +41,7 @@ namespace CSPHARMA.Pages.EP
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(long? id)
         {
             if (id == null || _context.TdcTchEstadoPedidos == null)
             {

@@ -1,5 +1,5 @@
 ﻿@page
-@model CSPHARMA.Pages.test.IndexModel
+@model CSPHARMA.Pages.EDP.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,13 +14,13 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.TdcCatEstadosDevolucionPedido[0].MdUuid)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TdcCatEstadosDevolucionPedido[0].MdDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatEstadosDevolucionPedido[0].Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TdcCatEstadosDevolucionPedido[0].CodEstadoDevolucion)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatEstadosDevolucionPedido[0].DesEstadoDevolucion)
@@ -32,21 +32,21 @@
 @foreach (var item in Model.TdcCatEstadosDevolucionPedido) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.MdUuid)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.MdDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodEstadoDevolucion)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DesEstadoDevolucion)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.MdUuid">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.MdUuid">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.MdUuid">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.CodEstadoDevolucion">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CodEstadoDevolucion">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CodEstadoDevolucion">Delete</a>
             </td>
         </tr>
 }

@@ -25,10 +25,10 @@ namespace CSPHARMA.Pages.EP
             if (_context.TdcTchEstadoPedidos != null)
             {
                 TdcTchEstadoPedido = await _context.TdcTchEstadoPedidos
-                .Include(t => t.MdUu)
-                .Include(t => t.MdUu1)
-                .Include(t => t.MdUu2)
-                .Include(t => t.MdUuNavigation).ToListAsync();
+                .Include(t => t.CodEstadoDevolucionNavigation)
+                .Include(t => t.CodEstadoEnvioNavigation)
+                .Include(t => t.CodEstadoPagoNavigation)
+                .Include(t => t.CodLineaNavigation).ToListAsync();
             }
         }
     }

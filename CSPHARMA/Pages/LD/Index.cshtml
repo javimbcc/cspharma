@@ -14,13 +14,13 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].MdUuid)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].MdDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].CodLinea)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].CodProvincia)
@@ -38,13 +38,13 @@
 @foreach (var item in Model.TdcCatLineasDistribucion) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.MdUuid)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.MdDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodLinea)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodProvincia)
@@ -56,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.CodBarrio)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.MdUuid">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.MdUuid">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.MdUuid">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.CodLinea">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CodLinea">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CodLinea">Delete</a>
             </td>
         </tr>
 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CSPHARMA_DAL.Modelos;
 
-namespace CSPHARMA.Pages.test
+namespace CSPHARMA.Pages.EDP
 {
     public class DetailsModel : PageModel
     {
@@ -27,7 +27,7 @@ namespace CSPHARMA.Pages.test
                 return NotFound();
             }
 
-            var tdccatestadosdevolucionpedido = await _context.TdcCatEstadosDevolucionPedidos.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdccatestadosdevolucionpedido = await _context.TdcCatEstadosDevolucionPedidos.FirstOrDefaultAsync(m => m.CodEstadoDevolucion == id);
             if (tdccatestadosdevolucionpedido == null)
             {
                 return NotFound();

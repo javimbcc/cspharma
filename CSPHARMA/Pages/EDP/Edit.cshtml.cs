@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CSPHARMA_DAL.Modelos;
 
-namespace CSPHARMA.Pages.test
+namespace CSPHARMA.Pages.EDP
 {
     public class EditModel : PageModel
     {
@@ -29,7 +29,7 @@ namespace CSPHARMA.Pages.test
                 return NotFound();
             }
 
-            var tdccatestadosdevolucionpedido =  await _context.TdcCatEstadosDevolucionPedidos.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdccatestadosdevolucionpedido =  await _context.TdcCatEstadosDevolucionPedidos.FirstOrDefaultAsync(m => m.CodEstadoDevolucion == id);
             if (tdccatestadosdevolucionpedido == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace CSPHARMA.Pages.test
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TdcCatEstadosDevolucionPedidoExists(TdcCatEstadosDevolucionPedido.MdUuid))
+                if (!TdcCatEstadosDevolucionPedidoExists(TdcCatEstadosDevolucionPedido.CodEstadoDevolucion))
                 {
                     return NotFound();
                 }
@@ -70,7 +70,7 @@ namespace CSPHARMA.Pages.test
 
         private bool TdcCatEstadosDevolucionPedidoExists(string id)
         {
-          return _context.TdcCatEstadosDevolucionPedidos.Any(e => e.MdUuid == id);
+          return _context.TdcCatEstadosDevolucionPedidos.Any(e => e.CodEstadoDevolucion == id);
         }
     }
 }

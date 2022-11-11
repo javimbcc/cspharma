@@ -22,23 +22,23 @@ namespace CSPHARMA.Pages.EP
         [BindProperty]
         public TdcTchEstadoPedido TdcTchEstadoPedido { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(long? id)
         {
             if (id == null || _context.TdcTchEstadoPedidos == null)
             {
                 return NotFound();
             }
 
-            var tdctchestadopedido =  await _context.TdcTchEstadoPedidos.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdctchestadopedido =  await _context.TdcTchEstadoPedidos.FirstOrDefaultAsync(m => m.Id == id);
             if (tdctchestadopedido == null)
             {
                 return NotFound();
             }
             TdcTchEstadoPedido = tdctchestadopedido;
-           ViewData["MdUuid"] = new SelectList(_context.TdcCatEstadosDevolucionPedidos, "MdUuid", "MdUuid");
-           ViewData["MdUuid"] = new SelectList(_context.TdcCatEstadosPagoEnvios, "MdUuid", "MdUuid");
-           ViewData["MdUuid"] = new SelectList(_context.TdcCatLineasDistribucions, "MdUuid", "MdUuid");
-           ViewData["MdUuid"] = new SelectList(_context.TdcCatEstadosEnvioPedidos, "MdUuid", "MdUuid");
+           ViewData["CodEstadoDevolucion"] = new SelectList(_context.TdcCatEstadosDevolucionPedidos, "CodEstadoDevolucion", "CodEstadoDevolucion");
+           ViewData["CodEstadoEnvio"] = new SelectList(_context.TdcCatEstadosEnvioPedidos, "CodEstadoEnvio", "CodEstadoEnvio");
+           ViewData["CodEstadoPago"] = new SelectList(_context.TdcCatEstadosPagoPedidos, "CodEstadoPago", "CodEstadoPago");
+           ViewData["CodLinea"] = new SelectList(_context.TdcCatLineasDistribucions, "CodLinea", "CodLinea");
             return Page();
         }
 
@@ -59,7 +59,7 @@ namespace CSPHARMA.Pages.EP
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TdcTchEstadoPedidoExists(TdcTchEstadoPedido.MdUuid))
+                if (!TdcTchEstadoPedidoExists(TdcTchEstadoPedido.Id))
                 {
                     return NotFound();
                 }
@@ -72,9 +72,9 @@ namespace CSPHARMA.Pages.EP
             return RedirectToPage("./Index");
         }
 
-        private bool TdcTchEstadoPedidoExists(string id)
+        private bool TdcTchEstadoPedidoExists(long id)
         {
-          return _context.TdcTchEstadoPedidos.Any(e => e.MdUuid == id);
+          return _context.TdcTchEstadoPedidos.Any(e => e.Id == id);
         }
     }
 }

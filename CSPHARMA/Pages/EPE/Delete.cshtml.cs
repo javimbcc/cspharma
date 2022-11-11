@@ -19,40 +19,40 @@ namespace CSPHARMA.Pages.EPE
         }
 
         [BindProperty]
-      public TdcCatEstadosPagoEnvio TdcCatEstadosPagoEnvio { get; set; }
+      public TdcCatEstadosPagoPedido TdcCatEstadosPagoPedido { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _context.TdcCatEstadosPagoEnvios == null)
+            if (id == null || _context.TdcCatEstadosPagoPedidos == null)
             {
                 return NotFound();
             }
 
-            var tdccatestadospagoenvio = await _context.TdcCatEstadosPagoEnvios.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdccatestadospagopedido = await _context.TdcCatEstadosPagoPedidos.FirstOrDefaultAsync(m => m.CodEstadoPago == id);
 
-            if (tdccatestadospagoenvio == null)
+            if (tdccatestadospagopedido == null)
             {
                 return NotFound();
             }
             else 
             {
-                TdcCatEstadosPagoEnvio = tdccatestadospagoenvio;
+                TdcCatEstadosPagoPedido = tdccatestadospagopedido;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null || _context.TdcCatEstadosPagoEnvios == null)
+            if (id == null || _context.TdcCatEstadosPagoPedidos == null)
             {
                 return NotFound();
             }
-            var tdccatestadospagoenvio = await _context.TdcCatEstadosPagoEnvios.FindAsync(id);
+            var tdccatestadospagopedido = await _context.TdcCatEstadosPagoPedidos.FindAsync(id);
 
-            if (tdccatestadospagoenvio != null)
+            if (tdccatestadospagopedido != null)
             {
-                TdcCatEstadosPagoEnvio = tdccatestadospagoenvio;
-                _context.TdcCatEstadosPagoEnvios.Remove(TdcCatEstadosPagoEnvio);
+                TdcCatEstadosPagoPedido = tdccatestadospagopedido;
+                _context.TdcCatEstadosPagoPedidos.Remove(TdcCatEstadosPagoPedido);
                 await _context.SaveChangesAsync();
             }
 

@@ -29,7 +29,7 @@ namespace CSPHARMA.Pages.LD
                 return NotFound();
             }
 
-            var tdccatlineasdistribucion =  await _context.TdcCatLineasDistribucions.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdccatlineasdistribucion =  await _context.TdcCatLineasDistribucions.FirstOrDefaultAsync(m => m.CodLinea == id);
             if (tdccatlineasdistribucion == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace CSPHARMA.Pages.LD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TdcCatLineasDistribucionExists(TdcCatLineasDistribucion.MdUuid))
+                if (!TdcCatLineasDistribucionExists(TdcCatLineasDistribucion.CodLinea))
                 {
                     return NotFound();
                 }
@@ -70,7 +70,7 @@ namespace CSPHARMA.Pages.LD
 
         private bool TdcCatLineasDistribucionExists(string id)
         {
-          return _context.TdcCatLineasDistribucions.Any(e => e.MdUuid == id);
+          return _context.TdcCatLineasDistribucions.Any(e => e.CodLinea == id);
         }
     }
 }

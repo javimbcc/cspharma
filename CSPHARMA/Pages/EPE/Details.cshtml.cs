@@ -18,23 +18,23 @@ namespace CSPHARMA.Pages.EPE
             _context = context;
         }
 
-      public TdcCatEstadosPagoEnvio TdcCatEstadosPagoEnvio { get; set; }
+      public TdcCatEstadosPagoPedido TdcCatEstadosPagoPedido { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _context.TdcCatEstadosPagoEnvios == null)
+            if (id == null || _context.TdcCatEstadosPagoPedidos == null)
             {
                 return NotFound();
             }
 
-            var tdccatestadospagoenvio = await _context.TdcCatEstadosPagoEnvios.FirstOrDefaultAsync(m => m.MdUuid == id);
-            if (tdccatestadospagoenvio == null)
+            var tdccatestadospagopedido = await _context.TdcCatEstadosPagoPedidos.FirstOrDefaultAsync(m => m.CodEstadoPago == id);
+            if (tdccatestadospagopedido == null)
             {
                 return NotFound();
             }
             else 
             {
-                TdcCatEstadosPagoEnvio = tdccatestadospagoenvio;
+                TdcCatEstadosPagoPedido = tdccatestadospagopedido;
             }
             return Page();
         }

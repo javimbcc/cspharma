@@ -28,7 +28,7 @@ namespace CSPHARMA.Pages.EEP
                 return NotFound();
             }
 
-            var tdccatestadosenviopedido = await _context.TdcCatEstadosEnvioPedidos.FirstOrDefaultAsync(m => m.MdUuid == id);
+            var tdccatestadosenviopedido = await _context.TdcCatEstadosEnvioPedidos.FirstOrDefaultAsync(m => m.CodEstadoEnvio == id);
 
             if (tdccatestadosenviopedido == null)
             {

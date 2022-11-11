@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CSPHARMA_DAL.Modelos;
 
-namespace CSPHARMA.Pages.test
+namespace CSPHARMA.Pages.EDP
 {
     public class IndexModel : PageModel
     {
